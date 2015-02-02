@@ -110,6 +110,8 @@ width: 550px;
 	margin-top: 10px;
 	border-radius: 4px;
 	text-align: center;
+	font-weight: bold;
+	border: 2px solid white;
 
 }
 
@@ -155,9 +157,6 @@ li:hover{
 }
 
 .start:hover{
-	border: 2px solid white;
-	
-	margin: auto;
-
+	border: 3px solid white;
 }
 

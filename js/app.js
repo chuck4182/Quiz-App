@@ -11,22 +11,17 @@ var numCorrect = 0;
 
 
 var writetoPage = function(){
-	if($("input:checked").length>0){
 $("#questions").empty();
 $(".hey").empty();
+$("#mainpic").empty();
+
 $("#questions").append(question[questionNumber].questionText);
 $("#list1").append(question[questionNumber].answers[0]);
 $("#list2").append(question[questionNumber].answers[1]);
 $("#list3").append(question[questionNumber].answers[2]);
 $("#list4").append(question[questionNumber].answers[3]);
-$("#mainpic").empty();
 
 $("#mainpic").append('<img src="images/' + question[questionNumber].questionImage +'">');
-$(".choice").removeAttr("checked");
-}
-else{
-	alert("Please make a selection");
-}
 
 };
 
@@ -37,47 +32,48 @@ function Question(questionText, answers, correctAnswer, questionImage){
 	this.questionImage = questionImage;
 }
 
-	$("#submit1").click(function(){
+	$("#answerChoices li").click(function(){
 
-		if($("input:checked").length>0){
-			
-			if ($("input:checked").val() === question[questionNumber].correctAnswer) {
+		var userChoice = $(this).val();
+			console.log(userChoice);
+			if ((userChoice.toString()) === question[questionNumber].correctAnswer) {
 				numCorrect +=1;
-
+				console.log(numCorrect);
+				
 			}
-		}
 
 		if(questionNumber<4){
 			
-			if($("input:checked").length>0){
 				questionNumber +=1;
-			}
+			$('#score').empty();
+			$("#score").append("Score: " + numCorrect.toString());
 			writetoPage();
 			return false;
 
 			}
 			
 			else{
-				$("#score").append(numCorrect.toString());
-				document.getElementById("score").style.border = "2px solid white";
+				$('#score').empty();
+				$("#score").append("Score: " + numCorrect.toString());
 				$('#questions').empty();
 				$('#mainpic').empty();
-				var mainImage = document.getElementById("mainpic");
-				mainImage.style.width = "600px";
-				$('#mainpic').append('<img src ="images/gameover.jpg">');
-				$('ul').empty()
-				$('#questions').append("Congratulations. You finished the quiz.");
 				document.getElementById('heading').remove();
+				var mainImage = document.getElementById("mainpic");
+				mainImage.style.width = "585px";
+				$('#mainpic').append('<img src ="images/gameover.jpg">');
+				$('ul').hide()
+				$('#questions').append("Congratulations. You finished the quiz.");
+				var x = document.getElementById('questions')
+				x.style.paddingBottom = '40px';
+				x.style.fontWeight = 'bold';
+
 				
 			}
+			
 	});
 
 				$("#start").click(function(){
-		questionNumber=0;
-		numCorrect=0;
-		writetoPage();
-		$("#score").empty();
-		$("#score").text("Score: ");
+					window.location.reload();
 	});
 
 question[0] = new Question("What is the name of singer 1?", 
