@@ -1,3 +1,146 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.grid{
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 1em;
+	margin: 0;
+}
+
+.grid, .row {
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.row{
+	margin-bottom: 1em;
+}
+
+.row:last-of-type{
+	margin-bottom: 0;
+	}
+[class*="col"] {
+	float: left;
+	margin-right: 1.5%;
+}
+
+[class*="col"]:last-of-type{
+	margin-right: 0;
+	}
+
+	.one-col {
+  width: 6.958%;
+}
+
+.two-col {
+  width: 15.41%;
+}
+
+.three-col {
+  width: 23.87%;
+}
+
+.four-col {
+  width: 32.33%;
+}
+
+.five-col {
+  width: 40.79%;
+}
+
+.six-col {
+  width: 49.25%;
+}
+
+.seven-col {
+  width: 57.70%;
+}
+
+.eight-col {
+  width: 66.16%;
+}
+
+.nine-col {
+  width: 74.62%;
+}
+
+.ten-col {
+  width: 83.08%;
+}
+
+.eleven-col {
+  width: 91.54%;
+}
+
+.twelve-col {
+  width: 100%;
+}
+
+.one-offset {
+  margin-left: 8.458%;
+}
+
+.two-offset {
+  margin-left: 16.91%;
+}
+
+.three-offset {
+  margin-left: 25.37%;
+}
+
+.four-offset {
+  margin-left: 33.83%;
+}
+
+.five-offset {
+  margin-left: 42.29%;
+}
+
+.six-offset {
+  margin-left: 50.75%;
+}
+
+.seven-offset {
+  margin-left: 59.20%;
+}
+
+.eight-offset {
+  margin-left: 67.66%;
+}
+
+.nine-offset {
+  margin-left: 76.12%;
+}
+
+.ten-offset {
+  margin-left: 84.58%;
+}
+
+.eleven-offset {
+  margin-left: 91.54%;
+}
+
+@media all and (max-width: 1200px) {
+	[class*="offset"]{
+		margin-left: 0;
+	}
+	[class*="col"] {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+	.row{
+		margin: 0;
+	}
+	.container {
+    position: static;
+  }
+}
+
 body{
 	background: #87e0fd; /* FF3.6+ */
 	background: -webkit/* IE10 Consumer Preview */ 
@@ -18,11 +161,11 @@ background-image: -webkit-linear-gradient(top left, #000000 0%, #5C5C5C 100%);
 /* W3C Markup, IE10 Release Preview */ 
 background-image: linear-gradient(to bottom right, #000000 0%, #5C5C5C 100%);
 	text-align: center;
-	margin: auto;
+	
 }
 
 header{
-position: relative;
+	position: relative;
 	height: 65px;
 	background: linear-gradient(to bottom, #646464 0 ,#0e0e0e 100%);
 	text-align: center;
@@ -66,14 +209,7 @@ position: relative;
 	width: 100%;
 	height: 100%;
 }
-.scorecontainer{
-	width: 490px;
-	height: 80px;
-	margin: auto;
-	
 
-	text-align: center;
-}
 #totalguesses{
 	display: inline-block;
 	height: 30px;
@@ -96,15 +232,15 @@ position: relative;
 margin: auto;
 margin-top: 20px;
 
-font: 20pt black;
-width: 550px;
+font: 1.6em black;
+width: 34.375em;
+max-width: 100%;
 
 }
 #score{
 	
 	height: 40px;
 	width: 140px;
-	margin: auto;
 	background-color: grey;
 	font-size: 20pt;
 	margin-top: 10px;
@@ -112,7 +248,8 @@ width: 550px;
 	text-align: center;
 	font-weight: bold;
 	border: 2px solid white;
-
+	margin: auto;
+	margin-top: 10px;
 }
 
 
